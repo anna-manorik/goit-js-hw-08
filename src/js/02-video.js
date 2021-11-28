@@ -13,10 +13,9 @@ function run(data) {
     localStorage.setItem("videoplayer-current-time", currTime);
 }
 
-player.on('play', function() {
-    const currTime = localStorage.getItem("videoplayer-current-time");
+const currTime = localStorage.getItem("videoplayer-current-time");
 
-    if(currTime !== null) {
-        player.setCurrentTime(currTime);
-    }
-}); 
+if(currTime !== null) {
+    player.setCurrentTime(Number(currTime));
+}
+
