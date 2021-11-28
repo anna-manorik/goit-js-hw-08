@@ -33,6 +33,9 @@ form.addEventListener("submit", evt => {
     console.log(obj);
 
     localStorage.removeItem("feedback-form-state");
-    evt.currentTarget.reset();
+    delete obj.email;
+    delete obj.message;
+    emailInput.value = "";
+    messageInput.value = "";
 })
 
