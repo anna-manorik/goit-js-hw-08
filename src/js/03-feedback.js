@@ -5,12 +5,19 @@ const form = document.querySelector(".feedback-form");
 const obj = {};
 const storage = localStorage.getItem("feedback-form-state");
 
+
 if(storage !== null) {
     const parsedStorage = JSON.parse(storage);
-    emailInput.value = parsedStorage.email;
-    messageInput.textContent = parsedStorage.message;
-    obj.email = parsedStorage.email;
-    obj.message = parsedStorage.message;
+
+    if(parsedStorage.email !== null && parsedStorage.email !== undefined){
+        emailInput.value = parsedStorage.email;
+        obj.email = parsedStorage.email;
+    }
+
+    if(parsedStorage.message !== null){
+        messageInput.textContent = parsedStorage.message;
+        obj.message = parsedStorage.message;
+    }
 }
 
 
